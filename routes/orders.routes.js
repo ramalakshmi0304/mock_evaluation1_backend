@@ -63,3 +63,5 @@ order[OrderIndex] ={...existingOrder, ...req.body};
 res.status(200).json(orders[orderIndex]);
 
 });
+
+export default orderRouter;

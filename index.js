@@ -1,7 +1,7 @@
 import express from "express";
-import orderRouter from "./routes/orders.routes"
-import productRouter from "./routes/products.routes"
-import analyticsRouter from "./routes/analytics.routes"
+import orderRouter from "./routes/orders.routes.js"
+import productRouter from "./routes/products.routes.js"
+import analyticsRouter from "./routes/analytics.routes.js"
 
 
 const app = express();
