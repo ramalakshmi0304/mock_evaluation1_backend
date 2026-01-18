@@ -3,13 +3,13 @@ import { readFileSync, writeFileSync} from "fs";
 
 const router = express.router();
 
-const readFile=()=>{
+const readData=()=>{
 const data = readFileSync("/db.json","utf-8")
 return JSON.parse(data,null,2)
 
 }
 
-const writeFile =(data)=>{
+const writeData =(data)=>{
 writeFileSync ("/db.json",JSON.stringify(data))
 };
 
@@ -20,12 +20,13 @@ orderRouter.post("/", (req,res)=>{
     newOrder={
 
         id: Date.now().toString(),
-        productId: req.body.productId
-        quantity: req.body.quantity
-        totalAmount:product.price * quantity,
-        status:
-        createdAt: Date.now();
+        productId: req.body.productId,
+        quantity: req.body.quantity,
+        totalAmount:(product.price * quantity),
+        status: placed,
+        createdAt: Date.now()
     }
+    
     data.orders.push(newOrder)
     writeData (data);
     res.status(201).json({message:"new order created"})
